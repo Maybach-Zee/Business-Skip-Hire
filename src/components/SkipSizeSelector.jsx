@@ -1,11 +1,9 @@
-//This component allows users to select a skip size based on their location and project needs.
 import React, { useState, useEffect } from 'react';
 import SkipCard from './SkipCard';
 import LoadingSpinner from './LoadingSpinner';
 import { fetchSkipsByLocation } from '../services/api';
 import ProgressSteps from './ProgressSteps';
 import '../styles/SkipSizeSelector.css';
-
 
 const SkipSizeSelector = ({ postcode = 'NR32', area = 'Lowestoft' }) => {
   const [skips, setSkips] = useState([]);
@@ -42,8 +40,6 @@ const SkipSizeSelector = ({ postcode = 'NR32', area = 'Lowestoft' }) => {
     }
   };
 
-  
-
   // Determine most popular skip (typically mid-range)
   const popularSkipSize = skips.length > 0 ? 
     skips.find(skip => skip.size >= 8 && skip.size <= 10)?.size || 
@@ -67,25 +63,69 @@ const SkipSizeSelector = ({ postcode = 'NR32', area = 'Lowestoft' }) => {
   const sortedSkips = [...skips].sort((a, b) => a.size - b.size);
 
   return (
-
-    
-
     <div className="skip-selector-container">
-        
-        <ProgressSteps />
+      <ProgressSteps />
 
-      <div className="selector-header">
-        <div className="header-content">
-          <h1 className="main-title">Choose Your Perfect Skip Size</h1>
+    <div className="modern-selector-header">
+      <div className="header-background">
+        <div className="gradient-orb orb-1"></div>
+        <div className="gradient-orb orb-2"></div>
+        <div className="gradient-orb orb-3"></div>
+        <div className="floating-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
+      </div>
+      
+      <div className="header-content">
+        <div className="title-section">
+          <div className="title-accent">Perfect Skip</div>
+          <h1 className="main-title">
+            Choose Your
+            <span className="title-highlight"> Perfect Skip Size</span>
+          </h1>
           <p className="subtitle">
-            Select the ideal skip for your project in <strong>{area}</strong>
+            Tailored waste solutions for your project in <span className="area-highlight">{area}</span>
           </p>
-          <div className="location-info">
-            <span className="location-icon">📍</span>
-            <span>Delivering to: {postcode}</span>
+        </div>
+        
+        <div className="location-card">
+          <div className="location-icon-wrapper">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div className="location-details">
+            <span className="location-label">Delivering to</span>
+            <span className="location-value">{postcode}</span>
+          </div>
+          <div className="location-status">
+            <div className="status-dot"></div>
+            <span>Available</span>
+          </div>
+        </div>
+        
+        <div className="feature-pills">
+          <div className="pill">
+            <span className="pill-icon">⚡</span>
+            Same Day Delivery
+          </div>
+          <div className="pill">
+            <span className="pill-icon">♻️</span>
+            Eco-Friendly
+          </div>
+          <div className="pill">
+            <span className="pill-icon">💰</span>
+            Best Price Guarantee
           </div>
         </div>
       </div>
+    </div>
+  
+
+
 
       <div className="skips-grid">
         {sortedSkips.map((skip) => (
