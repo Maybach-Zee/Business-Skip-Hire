@@ -1,4 +1,65 @@
-# Getting Started with Create React App
+# ♻️ SkipHire React App
+
+A modern and user-friendly skip hire web application built with React. It helps users choose the ideal skip size based on their postcode and area, displaying real-time availability, pricing, and features.
+
+## 🚀 Features
+
+•📍 Location-Based Skips – Fetch skip sizes available in your area via postcode.
+•🔁 Progress Steps – Interactive progress indicator for the skip hire process.
+•🗑️ Dynamic Skip Cards – Detailed skip information including size, price, and hire period.
+•🌀 Loading Spinner – Clean UI feedback while fetching data.
+•✅ Selection Summary – Users can easily view and confirm their selection.
+•📦 Most Popular Highlight – Identifies and highlights the most popular skip.
+•📘 Helpful Tips Section – Guides for different project types (small, medium, large).
+•🌍 Responsive Design – Optimized for desktops, tablets, and mobiles.
+
+## 📂 Project Structure
+
+src/
+├── components/
+│   ├── LoadingSpinner.js
+│   ├── ProgressSteps.js
+│   ├── SkipCard.js
+│   └── SkipSizeSelector.js
+├── pages/
+│   └── SkipSelectionPage.js
+├── services/
+│   └── api.js
+├── styles/
+│   ├── LoadingSpinner.css
+│   ├── ProgressSteps.css
+│   ├── SkipCard.css
+│   └── SkipSizeSelector.css
+└── App.js
+
+## ⚙️ Installation
+
+1.Clone the repo
+
+git clone https://github.com/your-username/skiphire-react-app.git
+cd skiphire-react-app
+
+2.Install dependencies
+npm install
+
+3.Start the app
+
+npm start
+
+## 🌐 API Integration
+
+The app fetches skip data based on location using:
+
+GET https://app.wewantwaste.co.uk/api/skips/by-location?postcode={POSTCODE}&area={AREA}
+
+## 🛠️ Technologies Used
+
+•React (Functional Components, Hooks)
+•CSS Modules
+•Fetch API for backend integration
+•SVG + Emojis for visual enhancement
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
